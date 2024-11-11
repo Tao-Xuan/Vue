@@ -58,7 +58,7 @@
           提交
         </el-button>
         <el-button @click="resetForm('ruleForm')" style="margin-left: 0">重置</el-button>
-        <el-button @click="goBack;$emit('back-to-login')" style="margin-left: 0">返回</el-button>
+        <el-button @click="$emit('back-to-login')" style="margin-left: 0">返回</el-button>
       </div>
     </el-card>
   </div>
@@ -72,7 +72,7 @@ export default {
         callback(new Error("请输入密码"));
       } else {
         if (this.ruleForm.password !== "") {
-          this.$refs.ruleForm.validateField("password");
+          this.$refs.ruleForm.validateField("checkPass");
         }
         callback();
       }
@@ -83,7 +83,7 @@ export default {
       } else if (value !== this.ruleForm.pass) {
         callback(new Error("两次输入密码不一致!"));
       } else {
-        callback();
+        callback(); // 成功时，回调
       }
     };
     return {
@@ -117,7 +117,9 @@ export default {
           }).then((res) => {
             if (res.data.code === "0") {
               this.$message({ message: res.data.msg, type: "success"});
-              this.$router.push({name: "login"});
+              // this.$router.push({name: "login"});
+              this.$emit('back-to-login');
+
             } else {
               this.$message({message: res.data.msg, type: "warning"});
             }
