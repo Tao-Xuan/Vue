@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Login from '../views/login/Login.vue';
 import Home from "@/views/home/Home.vue";
 import { ElMessage } from 'element-plus';
+import Dashboard from "@/views/Dashboard.vue";
 
 const routes = [
   {
@@ -21,6 +22,24 @@ const routes = [
       requiresAuth: true, // 需要验证的页面
       allowedRoles: ['admin','user','doctor'], // 允许的角色
     },
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    meta: { requiresAuth: true }, // 需要登录权限
+    children: [
+      {
+        path: '',  // 默认子路由，表示加载 Dashboard 下的 home 页面
+        name: 'Home',
+        component: Home, // 默认的页面内容
+      },
+      {
+        path: 'home',
+        name: 'DashboardHome',
+        component: Home, // 默认的页面内容
+      },
+    ]
   },
 ];
 
