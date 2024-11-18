@@ -101,8 +101,8 @@ export default {
               // } else if (sessionStorage.getItem("role") === "user") {
               //   // 显示普通用户页面或跳转
               // }
-              // 跳转页面到首页
-              this.$router.push('/home');
+              // 跳转页面到系统首页
+              this.$router.push('/layout');
               // 显示后端响应的成功信息
               this.$message({
                 message: res.data.msg,

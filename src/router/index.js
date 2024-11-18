@@ -1,13 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Login from '../views/login/Login.vue';
+import Login from '@/views/login/Login.vue';
 import Home from "@/views/home/Home.vue";
 import { ElMessage } from 'element-plus';
-import Dashboard from "@/views/Dashboard.vue";
+import Layout from "@/views/system/Layout.vue";
+import Index from "@/views/system/index/Index.vue";
+import Setting from "@/views/system/setting/Setting.vue";
+
 
 const routes = [
   {
     path: '/',
-    redirect: '/login' // 重定向到登录页面
+    name: 'Home',
+    component: Home,
+    meta: {
+      requiresAuth: false,
+    }
   },
   {
     path: '/login',
@@ -15,29 +22,37 @@ const routes = [
     component: Login,
   },
   {
-    path: '/home',
-    name: 'home',
-    component: Home,
-    meta: {
-      requiresAuth: true, // 需要验证的页面
-      allowedRoles: ['admin','user','doctor'], // 允许的角色
-    },
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
+    path: '/layout',
+    name: 'Layout',
+    component: Layout,
     meta: { requiresAuth: true }, // 需要登录权限
     children: [
       {
-        path: '',  // 默认子路由，表示加载 Dashboard 下的 home 页面
-        name: 'Home',
-        component: Home, // 默认的页面内容
+        path: '',  // 默认子路由，表示加载 Layout 下的 index 页面
+        name: 'LayoutIndex',
+        component: Index, // 默认的页面内容
+        meta: {
+          requiresAuth: true, // 需要验证的页面
+          allowedRoles: ['admin','user','doctor'], // 允许的角色
+        },
       },
       {
-        path: 'home',
-        name: 'DashboardHome',
-        component: Home, // 默认的页面内容
+        path: 'index',  // 默认子路由，表示加载 Layout 下的 index 页面
+        name: 'Index',
+        component: Index, // 默认的页面内容
+        meta: {
+          requiresAuth: true, // 需要验证的页面
+          allowedRoles: ['admin','user','doctor'], // 允许的角色
+        },
+      },
+      {
+        path: 'setting',
+        name: 'Setting',
+        component: Setting, // 默认的页面内容
+        meta: {
+          requiresAuth: true, // 需要验证的页面
+          allowedRoles: ['admin','user','doctor'], // 允许的角色
+        },
       },
     ]
   },
@@ -71,7 +86,7 @@ router.beforeEach((to, from, next) => {
         message: '您没有权限访问该页面！',
         type: 'error',
       });
-      next({ path: '/login' }); // 可以跳转到登录页面或一个没有权限页面
+      next({ path: '/layout' }); // 可以跳转到登录页面或一个没有权限页面
     } else {
       next(); // 如果有权限，放行
     }
