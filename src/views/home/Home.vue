@@ -39,7 +39,7 @@
         </el-button>
       </div>
 
-      <div class="section about" id="about">
+      <div class="about" id="about">
         <h2>关于我们</h2>
         <p>
           宠物医院成立于2005年，拥有一支专业的医疗团队，配备先进的诊疗设备。
@@ -47,7 +47,7 @@
         </p>
       </div>
 
-      <div class="section team" id="team">
+      <div class="team" id="team">
         <h2>医疗团队</h2>
         <div class="team-list">
           <div class="team-member" v-for="member in team" :key="member.id">
@@ -58,11 +58,11 @@
         </div>
       </div>
 
-      <div class="section services" id="services">
+      <div class="services" id="services">
         <h2>诊疗服务</h2>
-        <el-row :gutter="20">
+        <el-row >
           <el-col :span="8" v-for="service in services" :key="service.id">
-            <el-card>
+            <el-card class="card">
               <h3>{{ service.name }}</h3>
               <p>{{ service.description }}</p>
             </el-card>
@@ -70,7 +70,7 @@
         </el-row>
       </div>
 
-      <div class="section news" id="news">
+      <div class="news" id="news">
         <h2>最新资讯</h2>
         <el-carousel height="200px" :autoplay="true" indicator-position="outside">
           <el-carousel-item v-for="article in news" :key="article.id">
@@ -137,7 +137,7 @@ export default {
     },
     handleMenuSelect(menu) {
       //跳转到其他页面方法
-      // this.activeMenu = menu;
+      this.activeMenu = menu;
       // this.$router.push(`/${menu}`);
       //固定到当前页面锚点
       // const element = document.getElementById(menu);
@@ -164,6 +164,10 @@ export default {
 </script>
 
 <style scoped>
+* {
+  padding: 0;
+  margin: 0;
+}
 .pet-hospital-home {
   background-color: #f9f9f9;
 }
@@ -194,23 +198,35 @@ export default {
   flex: 1;
   margin-left: 20px;
 }
+/* 覆盖Element UI水平菜单项悬停和聚焦时的背景颜色 */
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  background-color: transparent !important; /* 或者您想要设置的背景颜色 */
+  color: var(--el-menu-hover-text-color) !important; /* 保留字体颜色变化 */
+}
 .login-button {
   margin-left: auto;
 }
 .banner {
-  height: calc(100vh - 64px - 80px);
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #e3f2fd;
-  //margin-bottom: 20px;
-}
-.section {
-  margin: 20px auto;
   padding: 20px;
-  max-width: 1200px;
+  height: calc(100vh - 64px);
+  text-align: center;
+  background-color: #e3f2fd;
+}
+.about,
+.news,
+.services,
+.team {
+  height: calc(100vh - 64px);
+  padding: 20px;
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+.card {
+  margin-bottom: 20px; /* 卡片底部边距 */
+  margin-left: 10px;   /* 左边距 */
+  margin-right: 10px;  /* 右边距 */
 }
 .team-list {
   display: flex;
@@ -221,9 +237,10 @@ export default {
   width: 150px;
 }
 .footer {
+  height: 20px;
   text-align: center;
-  padding: 20px;
-  background-color: #2d3a4b;
+  padding: 0;
+  background-color: pink;
   color: white;
 }
 </style>
