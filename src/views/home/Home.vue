@@ -3,7 +3,7 @@
     <!-- 顶部导航栏 -->
     <el-header class="header fixed-header">
       <div class="logo">
-        <img src="https://via.placeholder.com/120x50" alt="Logo" />
+        <img src="@/assets/img/logo/logo.png" alt="Logo" />
       </div>
       <el-menu
           class="menu"
@@ -192,7 +192,7 @@ export default {
   height: 64px;
 }
 .logo img {
-  height: 50px;
+  height: 64px;
 }
 .menu {
   flex: 1;
@@ -208,18 +208,47 @@ export default {
   margin-left: auto;
 }
 .banner {
-  padding: 20px;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("@/assets/img/home/home-banner.png");
   height: calc(100vh - 64px);
   text-align: center;
   background-color: #e3f2fd;
 }
-.about,
-.news,
-.services,
-.team {
+.about {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("@/assets/img/home/home_about_bg.png");
   height: calc(100vh - 64px);
-  padding: 20px;
   background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.news {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("@/assets/img/home/home-news.png");
+  height: calc(100vh - 64px);
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.services {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("@/assets/img/home/home-services.png");
+  height: calc(100vh - 64px);
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.team {
+  /*background-position: center center;*/
+  /*background-size: cover;*/
+  /*background-image: url("@/assets/img/home/home-team.png");*/
+  height: calc(100vh - 64px);
+  background: linear-gradient(to bottom, #fffcee 50%, white 50%);
+  /*background-color: #fffcee;*/
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
