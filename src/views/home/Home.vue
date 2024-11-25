@@ -310,6 +310,7 @@ export default {
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  font-family: "思源黑体", "Microsoft Yahei", -apple-system, "PingFang SC", "Helvetica Neue", STHeiti, Tahoma, Simsun, sans-serif;
 }
 .clearfix {
   margin: 50px;
@@ -336,6 +337,9 @@ export default {
 .clearfix li .item span {
   color: #ff7f5b;
   font-size: 58px;
+}
+em {
+  font-style: normal;
 }
 .clearfix li .item div {
   margin-top: 15px;
