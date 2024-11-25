@@ -318,15 +318,31 @@ export default {
   list-style: none; /* 去掉默认的列表样式 */
 }
 .clearfix li {
-  background: #FFFFFF;
-  border-radius: 10px;
-  margin: 0 20px;
-  padding: 0 20px;
+  padding: 0 15px;
   flex: 1; /* 可选，设置每个 li 等宽 */
   text-align: center; /* 可选，居中内容 */
 }
+.clearfix li .item {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 15% 0;
+}
+.clearfix li .item p {
+  margin-top: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #1cb19c;
+}
+.clearfix li .item span {
+  color: #ff7f5b;
+  font-size: 58px;
+}
+.clearfix li .item div {
+  margin-top: 15px;
+  color: #333333;
+}
 .clearfix img {
-  margin: 0 auto;
+  margin: 0 auto 20px;
   display: block;
 }
 .home-tit{
