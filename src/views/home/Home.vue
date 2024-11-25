@@ -32,19 +32,78 @@
     <!-- 主内容区 -->
     <el-main class="main-content">
       <div class="banner" id="home">
-        <h1>欢迎来到宠物医院</h1>
-        <p>我们致力于为您的宠物提供最优质的诊疗服务</p>
-        <el-button type="primary" size="large" @click="bookAppointment">
-          预约诊疗
-        </el-button>
+        <div class="banner-text">
+          <h2>因为严谨 所以安心</h2>
+          <div class="text-cn">以保障爱宠的健康为宗旨，重新定义每个小生命的尊严和价值</div>
+          <div class="text-en">Redefining the dignity and value of every little life for the purpose
+            of protecting the health of love and affection
+          </div>
+          <el-button round style="margin-top: 30px;width: 240px;height: 50px" type="primary" size="large" @click="bookAppointment">
+            预约诊疗
+          </el-button>
+        </div>
       </div>
 
       <div class="about" id="about">
-        <h2>关于我们</h2>
-        <p>
-          宠物医院成立于2005年，拥有一支专业的医疗团队，配备先进的诊疗设备。
-          我们致力于为每一位宠物提供个性化的诊疗方案，保障它们的健康。
-        </p>
+        <div class="home-tit transition">
+          <div style="padding-top: 15px">About us</div>
+          <span>关于哞哞</span>
+          <p>致力于推动中国宠物医疗事业发展，本着“因为严谨、所以安心”的宗旨以“家人”般的呵护，将服务做到贴心与专业，为爱宠提供人性化、高品质的健康服务体验</p>
+        </div>
+
+        <ul class="clearfix">
+          <li class="transition">
+            <div class="item b-shadow">
+              <img src="@/assets/img/home/home_about_ico1.png" alt="180家分院" />
+              <span class="num">
+                180<em>+</em>
+              </span>
+              <div>家分院</div>
+              <p>183 Hospital Branch</p>
+            </div>
+          </li>
+          <li class="transition">
+            <div class="item b-shadow">
+              <img src="@/assets/img/home/home_about_ico2.png" alt="800名医生" />
+              <span>
+                799
+              </span>
+              <div>名医生</div>
+              <p>800 pet doctors</p>
+            </div>
+          </li>
+          <li class="transition">
+            <div class="item b-shadow">
+              <img src="@/assets/img/home/home_about_ico3.png"
+                   alt="180万https://beian.miit.gov.cn/" />
+              <span class="num">
+                180W<em>+</em>
+              </span>
+              <div>年接诊病例</div>
+              <p>1800000+ Clinical case</p>
+            </div>
+          </li>
+          <li class="transition">
+            <div class="item b-shadow">
+              <img src="@/assets/img/home/home_about_ico4.png" alt="30000+客户感谢留言" />
+              <span class="num">
+                30000<em>+</em>
+              </span>
+              <div>客户感谢留言</div>
+              <p>30000+ Customer letter</p>
+            </div>
+          </li>
+          <li class="transition">
+            <div class="item b-shadow">
+              <img src="@/assets/img/home/home_about_ico5.png" alt="400万+康复案例" />
+              <span class="num">
+                400W<em>+</em>
+              </span>
+              <div>康复案例</div>
+              <p>4000000+ Rehabilitation cases</p>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <div class="team" id="team">
@@ -215,6 +274,34 @@ export default {
   text-align: center;
   background-color: #e3f2fd;
 }
+.banner-text {
+  position: absolute;
+  width: 100%;
+  left:0;
+  top:40%;
+  color: #FFFFFF;
+}
+.banner-text h2 {
+  font-size: 60px;
+  letter-spacing: 2px;
+  padding-bottom: 20px;
+  position: relative;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.banner-text .text-cn {
+  margin: 20px auto 0;
+  max-width: 820px;
+  font-size: 30px;
+}
+.banner-text .text-en {
+  margin: 20px auto 0;
+  max-width: 730px;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  opacity: .6;
+}
 .about {
   background-position: center center;
   background-size: cover;
@@ -223,6 +310,44 @@ export default {
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+}
+.clearfix {
+  margin: 50px;
+  display: flex;
+  justify-content: space-around; /* 元素水平对齐方式 */
+  list-style: none; /* 去掉默认的列表样式 */
+}
+.clearfix li {
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin: 0 20px;
+  padding: 0 20px;
+  flex: 1; /* 可选，设置每个 li 等宽 */
+  text-align: center; /* 可选，居中内容 */
+}
+.clearfix img {
+  margin: 0 auto;
+  display: block;
+}
+.home-tit{
+  text-align: center;
+}
+.home-tit div{
+  font-size:30px;
+  color: #333333;
+  text-transform: uppercase;
+}
+.home-tit span{
+  margin-top:5px;
+  display: block;
+  font-size: 18px;
+  color: #333333;
+}
+.home-tit p{
+  color: #666;
+  margin:20px auto 0;
+  max-width: 650px;
+  line-height: 30px;
 }
 .news {
   background-position: center center;
