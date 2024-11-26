@@ -112,6 +112,13 @@
           <span>医疗团队</span>
           <p>现有800+主治医生全体持证上岗，20+博士专家，临床经验丰富、医疗技术精湛</p>
         </div>
+        <div class="team-list">
+          <div class="team-member" v-for="member in team" :key="member.id">
+            <img :src="member.avatar" alt="头像" />
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+          </div>
+        </div>
       </div>
 
       <div class="services" id="services">
@@ -399,14 +406,14 @@ em {
   margin-left: 10px;   /* 左边距 */
   margin-right: 10px;  /* 右边距 */
 }
-/*.team-list {*/
-/*  display: flex;*/
-/*  justify-content: space-around;*/
-/*}*/
-/*.team-member {*/
-/*  text-align: center;*/
-/*  width: 150px;*/
-/*}*/
+.team-list {
+  display: flex;
+  justify-content: space-around;
+}
+.team-member {
+  text-align: center;
+  width: 150px;
+}
 .footer {
   height: 20px;
   text-align: center;
